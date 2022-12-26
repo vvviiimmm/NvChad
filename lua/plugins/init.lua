@@ -193,7 +193,7 @@ local plugins = {
 
   -- Only load whichkey after all the gui
   ["folke/which-key.nvim"] = {
-    disable = true,
+    disable = false,
     module = "which-key",
     keys = { "<leader>", '"', "'", "`" },
     config = function()
@@ -203,6 +203,16 @@ local plugins = {
       require("core.utils").load_mappings "whichkey"
     end,
   },
+
+  ["folke/zen-mode.nvim"] = {
+    config = function()
+      require("zen-mode").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+  }
 }
 
 -- Load all plugins
