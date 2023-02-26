@@ -49,6 +49,14 @@ opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
 
+-- move to mappings
+-- g.copilot_no_tab_map = true
+-- g.copilot_assume_mapped = true
+-- vim.api.nvim_set_keymap("i", "<C-O>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+
+opt.clipboard = { 'unnamed', 'unnamedplus' }
+
 -- disable some builtin vim plugins
 local default_plugins = {
   "2html_plugin",

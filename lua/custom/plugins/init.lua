@@ -1,13 +1,5 @@
 local plugins = {
 
-  ["github/copilot.vim"] = {
-    setup = function()
-      require('core.utils').load_mappings "copilot"
-    end
-  },
-
-  ["mg979/vim-visual-multi"] = { },
-
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 
   ["lewis6991/impatient.nvim"] = {},
@@ -201,7 +193,7 @@ local plugins = {
 
   -- Only load whichkey after all the gui
   ["folke/which-key.nvim"] = {
-    disable = false,
+    disable = true,
     module = "which-key",
     keys = { "<leader>", '"', "'", "`" },
     config = function()
@@ -212,33 +204,15 @@ local plugins = {
     end,
   },
 
-  ["folke/zen-mode.nvim"] = {
+  ["folke/zen-mode.nvim!"] = {
     config = function()
       require("zen-mode").setup {
       -- your configuration comes here
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
-    }
+      }
     end
-  },
-
-  ["LnL7/vim-nix"] = {
-    disable = false
-  },
-
-  ["purescript-contrib/purescript-vim"] = {
-    disable = false
-  },
-
-  ["neovimhaskell/haskell-vim"] = {
-    disable = false
-  },
-
-  ["akinsho/bufferline.nvim"] = {
-    tag = "v3.*",
-    requires = 'nvim-tree/nvim-web-devicons'
   }
-
 }
 
 -- Load all plugins
