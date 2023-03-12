@@ -1,10 +1,19 @@
 local plugins = {
 
+  ["dominikduda/vim_current_word"] = {},
+
   ["github/copilot.vim"] = {
     setup = function()
       require('core.utils').load_mappings "copilot"
     end
   },
+
+  -- ["mrcjkb/haskell-tools.nvim"] = {
+  --   branch = "1.x.x",
+  --   setup = function()
+  --     require("haskell-tools")
+  --   end
+  -- },
 
   ["mg979/vim-visual-multi"] = { },
 
@@ -238,6 +247,7 @@ local plugins = {
     tag = "v3.*",
     requires = 'nvim-tree/nvim-web-devicons'
   }
+
 
 }
 
