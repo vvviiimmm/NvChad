@@ -17,14 +17,21 @@ M.telescope = {
     -- find
     ["<leader>fi"] = { "<cmd> Telescope grep_string <CR>", "search word under the cursor" },
 
-    ["<leader>fr"] = { "<cmd> Telescope resume <CR>", "open the last searched window" },
+    ["<leader>fp"] = { "<cmd> Telescope resume <CR>", "open the last searched window", opts = { noremap = true, silent = true}},
   },
 }
 
 M.copilot = {
+  plugin = true,
+
   i = {
-    ["nm"] = { 'copilot#Accept("<CR>")', opts = { silent = true, expr = true} },
-    ["<Right>"] = { 'copilot#Accept("<CR>")', opts = { silent = true, expr = true} }
+    [",,"] = { '<Plug>(copilot-next)', opts = { silent = true, noremap = false} },
+    -- [""] = { 'copilot-i_ALT-[', opts = { silent = true, expr = true} }
+  }
+}
+
+M.vim_current_word = {
+  i = {
   }
 }
 -- more keybinds!
