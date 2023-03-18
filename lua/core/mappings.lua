@@ -31,8 +31,10 @@ M.general = {
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "save file" },
 
-    -- Copy all
-    ["<C-c>"] = { "<cmd> %y+ <CR>", "copy whole file" },
+    -- copy/paste
+    ["<C-c>"] = { "\"ayiw", "copy word" },
+    ["<C-x>"] = { "\"adaw", "cut word" },
+    ["<C-v>"] = { "\"ap", "paste" },
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
@@ -66,6 +68,10 @@ M.general = {
   v = {
     ["<Up>"] = { 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opts = { expr = true } },
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opts = { expr = true } },
+
+    ["<C-c>"] = { "\"ay", "copy section" },
+    ["<C-x>"] = { "\"ad", "cut section" },
+    ["<C-v>"] = { "\"ap", "paste section" },
   },
 
   x = {
@@ -217,8 +223,7 @@ M.lspconfig = {
       function()
         vim.diagnostic.goto_next()
       end,
-      "goto_next",
-    },
+      "goto_next", },
 
     ["<leader>q"] = {
       function()
@@ -262,7 +267,8 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    -- ["<C-p>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<leader>w"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
