@@ -7,6 +7,7 @@ M.general = {
   n = {
     ["C-j"] = { "5j", opts = { noremap = true, silent = true}},
     ["C-k"] = { "5k", opts = { noremap = true, silent = true}},
+    ["C-c"] = { "yiw", opts = { silent = true}},
   }
 }
 

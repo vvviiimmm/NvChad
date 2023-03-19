@@ -28,8 +28,28 @@ autocmd("VimEnter", {
 
 autocmd("FileType", {
   callback = function()
-    vim.opt.formatoptions:remove('c')
-    vim.opt.formatoptions:remove('r')
-    vim.opt.formatoptions:remove('o')
+    -- vim.opt.formatoptions:remove('c')
+    -- vim.opt.formatoptions:remove('r')
+    -- vim.opt.formatoptions:remove('o')
   end,
 })
+
+
+-- jump between recent buffers
+-- Save the current buffer number
+local current_buf = vim.api.nvim_get_current_buf()
+
+-- Function to jump to a specific buffer number
+local function jump_to_buffer(buf_number)
+  vim.cmd("b" .. buf_number)
+end
+
+-- Jump between two recently opened buffers
+function switch_recent_buffers()
+  local last_buf = vim.api.nvim_get_current_buf()
+  jump_to_buffer(current_buf)
+  current_buf = last_buf
+end
+
+-- Map Ctrl+Tab to switch_recent_buffers function
+vim.api.nvim_set_keymap('n', '<S-Tab>', ':lua switch_recent_buffers()<CR>', {noremap = true, silent = true})

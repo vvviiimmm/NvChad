@@ -95,12 +95,12 @@ M.tabufline = {
       "goto next buffer",
     },
 
-    ["<S-Tab>"] = {
-      function()
-        require("nvchad_ui.tabufline").tabuflinePrev()
-      end,
-      "goto prev buffer",
-    },
+    -- ["<S-Tab>"] = {
+    --   function()
+    --     require("nvchad_ui.tabufline").tabuflinePrev()
+    --   end,
+    --   "goto prev buffer",
+    -- },
 
     -- pick buffers via numbers
     ["<Bslash>"] = { "<cmd> TbufPick <CR>", "Pick buffer" },
