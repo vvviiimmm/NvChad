@@ -1,5 +1,12 @@
 local plugins = {
 
+  ["quangnguyen30192/cmp-nvim-ultisnips"] = { },
+
+
+  ["SirVer/ultisnips"] = { },
+
+  ["honza/vim-snippets"] = { },
+
   ["dominikduda/vim_current_word"] = {},
 
   ["github/copilot.vim"] = {
@@ -8,12 +15,13 @@ local plugins = {
     end
   },
 
-  -- ["mrcjkb/haskell-tools.nvim"] = {
-  --   branch = "1.x.x",
-  --   setup = function()
-  --     require("haskell-tools")
-  --   end
-  -- },
+  ["mrcjkb/haskell-tools.nvim"] = {
+    disable = false,
+    branch = "1.x.x",
+    setup = function()
+      require("haskell-tools")
+    end
+  },
 
   ["mg979/vim-visual-multi"] = { },
 
@@ -131,22 +139,15 @@ local plugins = {
     end,
   },
 
-  -- load luasnips + cmp related in insert mode only
-
-  ["rafamadriz/friendly-snippets"] = {
-    module = { "cmp", "cmp_nvim_lsp" },
-    event = "InsertEnter",
-  },
-
   ["hrsh7th/nvim-cmp"] = {
-    after = "friendly-snippets",
+    after = "nvim-cmp-nvim-ultisnips",
     config = function()
       require "plugins.configs.cmp"
     end,
   },
 
   ["L3MON4D3/LuaSnip"] = {
-    wants = "friendly-snippets",
+    -- wants = "friendly-snippets",
     after = "nvim-cmp",
     config = function()
       require("plugins.configs.others").luasnip()
@@ -167,13 +168,13 @@ local plugins = {
     end,
   },
 
-  ["goolord/alpha-nvim"] = {
-    after = "base46",
-    disable = true,
-    config = function()
-      require "plugins.configs.alpha"
-    end,
-  },
+  -- ["goolord/alpha-nvim"] = {
+  --   after = "base46",
+  --   disable = true,
+  --   config = function()
+  --     require "plugins.configs.alpha"
+  --   end,
+  -- },
 
   ["numToStr/Comment.nvim"] = {
     module = "Comment",

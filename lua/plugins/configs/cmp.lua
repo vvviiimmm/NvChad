@@ -42,7 +42,8 @@ local options = {
   },
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      -- require("luasnip").lsp_expand(args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   formatting = {
@@ -53,8 +54,8 @@ local options = {
     end,
   },
   mapping = {
-    ["<k>"] = cmp.mapping.select_prev_item(),
-    ["<j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-a>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
@@ -89,6 +90,7 @@ local options = {
     -- }),
   },
   sources = {
+    { name = "ultisnips" },
     { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
